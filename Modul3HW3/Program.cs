@@ -2,11 +2,25 @@
 
 namespace Modul3HW3
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Subject subject = new Subject();
+            Observer firstOserver = new Observer(1, subject);
+            Observer secondObserver = new Observer(2, subject);
+            Observer thirdObserver = new Observer(3, subject);
+
+            firstOserver.Attach();
+            secondObserver.Attach();
+            thirdObserver.Attach();
+
+            subject.Notify();
+
+            firstOserver.Detach();
+            secondObserver.Detach();
+            thirdObserver.Detach();
+            Console.ReadKey();
         }
     }
 }
